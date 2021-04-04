@@ -1,6 +1,7 @@
-export const GetUserById = (_, { id }, { UserModel }) => {
-  const user = UserModel.findOne(id);
-  if(!user){
+export const GetUserById = async (_, { id }, { UserModel }) => {
+  const user = await UserModel.findById(id);
+  if (!user) {
     throw new Error(`No user found with ID: ${id}`);
   }
+  return user;
 };

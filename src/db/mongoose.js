@@ -6,6 +6,8 @@ mongoose
     useFindAndModify: false,
     useCreateIndex: true,
     useUnifiedTopology: true,
+    autoIndex: true, //this is the code I added that solved it all
+    keepAlive: true,
   })
   .catch((err) => console.error(err));
 
@@ -19,6 +21,8 @@ try {
         useNewUrlParser: true,
         useFindAndModify: false,
         useUnifiedTopology: true,
+        autoIndex: true, //this is the code I added that solved it all
+        keepAlive: true,
       })
       .catch((err) => console.error({ err }));
   })

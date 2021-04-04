@@ -12,7 +12,7 @@ import {
 import { Users } from '../dummyData/user';
 import { models } from '../models';
 import * as types from './type-defs';
-
+import bcrypt from 'bcrypt';
 export { ApolloServer, withFilter } from 'apollo-server-express';
 
 const typeDefs = Object.values(types);
@@ -38,6 +38,7 @@ export const properties = {
 export const context = {
   ...models,
   Users,
+  bcrypt,
 };
 
 export default {

@@ -2,7 +2,7 @@ import { gql } from 'apollo-server';
 
 export const user = gql`
   extend type Query {
-    GetUserById(id: Int!): User
+    GetUserById(id: ID!): User
   }
   extend type Mutation {
     SignUpUser(data: SignUpInput!): User
@@ -11,14 +11,17 @@ export const user = gql`
     email: String
     id: ID
     password: String
-    name: String
+    fullName: String
+    createdAt:Date
+    updatedAt: Date
   }
   input SignUpInput {
-    firstName: String
-    LastName: String
-    email: String
-    password: String
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
     dob: Date
+    
   }
 `;
 
