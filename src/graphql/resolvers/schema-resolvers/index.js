@@ -5,7 +5,7 @@ import * as Types from './types';
 
 export default {
   Query,
-  Mutation,
+  //Mutation,
   // Subscription,
-  ...Types,
+  //...Types,
 };

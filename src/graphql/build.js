@@ -9,15 +9,16 @@ import {
   resolvers,
   //  schemaDirectives
 } from './resolvers';
-import models from '../models';
+import { Users } from '../dummyData/user';
+import { models } from '../models';
 import * as types from './type-defs';
 
 export { ApolloServer, withFilter } from 'apollo-server-express';
 
-const type_Defs = Object.values(types);
-console.log({type_Defs})
+const typeDefs = Object.values(types);
+
 const schema = makeExecutableSchema({
-  typeDefs:type_Defs,
+  typeDefs,
   resolvers,
   // schemaDirectives,
   inheritResolversFromInterfaces: true,
@@ -36,6 +37,7 @@ export const properties = {
 
 export const context = {
   ...models,
+  Users,
 };
 
 export default {
