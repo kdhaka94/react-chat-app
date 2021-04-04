@@ -9,7 +9,7 @@
     "build-server": "babel -d ./dist ./src -s",
     "build": "npm run clean && npm run build-server",
     "start": "node ./dist/index.js",
-    "git-push-origin": "git add . && git commit -m \"new changes\" && git push origin master"
+    "git-push": "git add . && git commit -m \"new changes\" && git push origin master"
   },
   "keywords": [],
   "author": "Kuldeep Dhaka <kdhaka94>",
