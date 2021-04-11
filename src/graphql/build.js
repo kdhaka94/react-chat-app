@@ -13,7 +13,10 @@ import { Users } from '../dummyData/user';
 import { models } from '../models';
 import * as types from './type-defs';
 import bcrypt from 'bcrypt';
-export { ApolloServer, withFilter } from 'apollo-server-express';
+import * as utils from '../util';
+import jwt from 'jsonwebtoken';
+import * as subscriptions from './subscriptions';
+export { ApolloServer, withFilter, PubSub } from 'apollo-server-express';
 
 const typeDefs = Object.values(types);
 
@@ -26,7 +29,7 @@ const schema = makeExecutableSchema({
 
 export const properties = {
   schema,
-  // subscriptions,
+  subscriptions,
   introspection: true,
   playground: process.env.NODE_ENV == 'development',
   tracing: true,
@@ -39,6 +42,9 @@ export const context = {
   ...models,
   Users,
   bcrypt,
+  jwt,
+  utils,
+  ...utils,
 };
 
 export default {

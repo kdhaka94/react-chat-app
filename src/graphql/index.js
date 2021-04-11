@@ -1,18 +1,20 @@
-import { mongoose} from '../db';
+import { mongoose } from '../db';
 // import { io } from '../socket';
-import {
-  properties, context, ApolloServer, withFilter,
-} from './build';
+import { properties, context, ApolloServer, withFilter, PubSub } from './build';
 
+const pubSub = new PubSub();
 export const server = new ApolloServer({
   ...properties,
-  context: async ({ req, connection }) => ({
-    user: connection?.context?.user ? connection?.context?.user : req?.user,
-    withFilter,
-    ...context,
-    mongoose,
-    // redis,
-  }),
+  context: async ({ req, connection }) => {
+    return {
+      user: connection?.context?.user ? connection?.context?.user : req?.user,
+      withFilter,
+      ...context,
+      mongoose,
+      pubSub
+      // redis,
+    };
+  },
 });
 
 export default server;

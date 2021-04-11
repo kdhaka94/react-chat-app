@@ -10,7 +10,6 @@ export const path = '/';
 const auth = ejwt({
   secret: process.env.JWT_SECRET,
   credentialsRequired: false,
-  algorithms: ['RS256'] 
 });
 
 const skipError = (err, req, res, next) => {

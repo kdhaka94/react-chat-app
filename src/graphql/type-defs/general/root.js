@@ -4,6 +4,8 @@ export const root = gql`
   type Query
 
   type Mutation
+
+  type Subscription
 `;
 
 export default root;

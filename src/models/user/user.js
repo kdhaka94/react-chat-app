@@ -27,6 +27,10 @@ export const UserModel = mongoose.model(
       dob: {
         type: Date,
       },
+      online: {
+        type: Boolean,
+        default: false,
+      },
     },
     { timestamps: true }
   ).index({ unique: true })
