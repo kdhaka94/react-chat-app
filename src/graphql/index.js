@@ -1,8 +1,8 @@
-import { mongoose } from '../db';
+import { mongoose,pubSub } from '../db';
 // import { io } from '../socket';
 import { properties, context, ApolloServer, withFilter, PubSub } from './build';
 
-const pubSub = new PubSub();
+
 export const server = new ApolloServer({
   ...properties,
   context: async ({ req, connection }) => {

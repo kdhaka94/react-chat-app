@@ -31,6 +31,15 @@ export const UserModel = mongoose.model(
         type: Boolean,
         default: false,
       },
+      lastSeen: {
+        type: Date,
+        default: new Date(),
+      },
+      gender: {
+        type: String,
+        required: true,
+        enum: ['Male', 'Female'],
+      },
     },
     { timestamps: true }
   ).index({ unique: true })

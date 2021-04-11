@@ -42,3 +42,11 @@ export const GetMe = async (root, params, context) => {
   const me = await UserModel.findOne({ _id: user.id });
   return me;
 };
+
+export const GetOnlineUsers = async (root, params, { UserModel }) => {
+  const onlineUsers = await UserModel.find({ online: true });
+  if (!onlineUsers) {
+    return [];
+  }
+  return onlineUsers;
+};
