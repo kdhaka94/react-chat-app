@@ -29,6 +29,10 @@ export const PersonalMessageModel = MessageModel.discriminator(
       type: Boolean,
       default: false,
     },
+    replyTo: {
+      type: ObjectId,
+      default: null,
+    },
     deleted: { type: Boolean, default: false },
   })
 );

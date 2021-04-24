@@ -31,6 +31,7 @@ export const user = gql`
     online: String!
     createdAt: Date!
     updatedAt: Date!
+    lastSeen: Date
   }
   input SignUpInput {
     firstName: String!

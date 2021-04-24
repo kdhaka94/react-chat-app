@@ -6,10 +6,11 @@ export const chat = gql`
     GetMyChats: [Chat]
   }
   extend type Mutation {
-    CreateChat(participants: [ID]): Chat
-    DeleteChat(chatId: ID): String
+    CreateChat(participants: [ID!]!): Chat
+    DeleteChat(chatId: ID!): String
+    UpdateChat(chatId: ID!): Chat
   }
-  
+
   type Chat {
     messages: [Message]
     participants: [User]

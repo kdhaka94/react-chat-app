@@ -12,6 +12,7 @@ import {
 import { Users } from '../dummyData/user';
 import { models } from '../models';
 import * as types from './type-defs';
+import moment from 'moment';
 import bcrypt from 'bcrypt';
 import * as utils from '../util';
 import jwt from 'jsonwebtoken';
@@ -45,6 +46,7 @@ export const context = {
   jwt,
   utils,
   ...utils,
+  moment,
 };
 
 export default {
