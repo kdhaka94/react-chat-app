@@ -43,6 +43,7 @@ export const context = {
   jwt,
   utils,
   ...utils,
+  ...utils.CONSTANTS,
   moment,
   ValidationError,
   AuthenticationError,
