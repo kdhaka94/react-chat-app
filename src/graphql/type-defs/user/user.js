@@ -5,7 +5,7 @@ export const user = gql`
     GetUserById(id: ID!): User
     LoginUser(data: LoginInput): Login!
     GetAllUsers: [User]
-    GetMe: User
+    GetMe: User @isAuth
     GetOnlineUsers: [User]
   }
   extend type Mutation {

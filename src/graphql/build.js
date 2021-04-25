@@ -5,10 +5,7 @@ import {
   UserInputError,
   makeExecutableSchema,
 } from 'apollo-server-express';
-import {
-  resolvers,
-  //  schemaDirectives
-} from './resolvers';
+import { resolvers, schemaDirectives } from './resolvers';
 import { Users } from '../dummyData/user';
 import { models } from '../models';
 import * as types from './type-defs';
@@ -24,7 +21,7 @@ const typeDefs = Object.values(types);
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
-  // schemaDirectives,
+  schemaDirectives,
   inheritResolversFromInterfaces: true,
 });
 
@@ -47,6 +44,10 @@ export const context = {
   utils,
   ...utils,
   moment,
+  ValidationError,
+  AuthenticationError,
+  ForbiddenError,
+  UserInputError,
 };
 
 export default {
