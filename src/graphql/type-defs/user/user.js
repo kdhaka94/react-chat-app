@@ -3,13 +3,13 @@ import { gql } from 'apollo-server';
 export const user = gql`
   extend type Query {
     GetUserById(id: ID!): User
-    LoginUser(data: LoginInput): Login!
     GetAllUsers: [User]
     GetMe: User @isAuth
     GetOnlineUsers: [User]
   }
   extend type Mutation {
     SignUpUser(data: SignUpInput!): User!
+    LoginUser(data: LoginInput): Login! @unAuth
   }
   extend type Subscription {
     OnlineUsers: User
@@ -23,7 +23,7 @@ export const user = gql`
   type User {
     id: ID!
     email: String!
-    password: String
+    password: String @hasRole(role: "GOD")
     firstName: String
     lastName: String
     fullName: String
