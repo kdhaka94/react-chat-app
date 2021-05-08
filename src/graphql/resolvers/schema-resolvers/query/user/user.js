@@ -1,19 +1,16 @@
-export const GetUserById = async (root, { id }, { UserModel }) => {
-  const user = await UserModel.findById(id);
+export const GetUserById = async (root, { id }, { batch }) => {
+  const user = await batch.User.User.user.load(id);
   if (!user) {
     throw new Error(`No user found with ID: ${id}`);
   }
   return user;
 };
 
+export const GetAllUsers = async (root, params, { UserModel }) =>
+  await UserModel.find();
 
-export const GetAllUsers = async (root, params, { UserModel }) => {
-  return await UserModel.find();
-};
-
-export const GetMe = async (root, params, context) => {
-  const { user, UserModel } = context;
-  const me = await UserModel.findOne({ _id: user.id });
+export const GetMe = async (root, params, { user, batch }) => {
+  const me = await batch.User.User.user.load(user.id);
   return me;
 };
 

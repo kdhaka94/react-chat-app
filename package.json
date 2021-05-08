@@ -10,7 +10,7 @@
     "build": "npm run clean && npm run build-server",
     "start": "node ./dist/index.js",
     "git-push": "git add . && git commit -m \"new changes\" && git push origin master",
-    "start-aws":"sudo pm2 start ./dist/index.js --name chatApp --watch"
+    "start-aws": "sudo pm2 start ./dist/index.js --name chatApp --watch"
   },
   "keywords": [],
   "author": "Kuldeep Dhaka <kdhaka94>",
@@ -26,12 +26,16 @@
     "apollo-server-express": "^2.22.2",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
+    "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-jwt": "5.3.3",
     "graphql": "^15.5.0",
     "graphql-tools": "^7.0.4",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "lodash.groupby": "^4.6.0",
+    "lodash.keyby": "^4.6.0",
     "moment": "^2.29.1",
     "mongoose": "^5.12.3"
   }

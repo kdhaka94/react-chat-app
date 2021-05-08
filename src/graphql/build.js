@@ -15,7 +15,7 @@ import * as utils from '../util';
 import jwt from 'jsonwebtoken';
 import * as subscriptions from './subscriptions';
 export { ApolloServer, withFilter, PubSub } from 'apollo-server-express';
-
+import { batch } from '../batch';
 const typeDefs = Object.values(types);
 
 const schema = makeExecutableSchema({
@@ -42,6 +42,7 @@ export const context = {
   bcrypt,
   jwt,
   utils,
+  batch,
   ...utils,
   ...utils.CONSTANTS,
   moment,
