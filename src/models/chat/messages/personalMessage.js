@@ -7,6 +7,18 @@ const { ObjectId } = Schema.Types;
 export const PersonalMessageModel = MessageModel.discriminator(
   'PersonalMessage',
   new Schema({
+    mentions: [
+      {
+        accountId: {
+          type: ObjectId,
+          required: true,
+          index: true,
+        },
+        display: {
+          type: String,
+        },
+      },
+    ],
     seen: {
       type: Boolean,
       default: false,

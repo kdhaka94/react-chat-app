@@ -6,10 +6,15 @@ export const ChatModel = model(
   'Chat',
   new Schema(
     {
+      
       participents: {
         type: [ObjectId],
         required: true,
         ref: 'users',
+      },
+      updateChange: {
+        type: Date,
+        default: new Date(),
       },
       type: {
         type: String,
@@ -22,3 +27,5 @@ export const ChatModel = model(
     }
   )
 );
+
+export default ChatModel;

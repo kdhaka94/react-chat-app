@@ -26,6 +26,7 @@ export const user = gql`
     password: String @hasRole(role: "GOD")
     firstName: String
     lastName: String
+    me: Boolean
     fullName: String
     gender: Gender!
     online: String!

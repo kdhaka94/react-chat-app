@@ -1,3 +1,2 @@
 export * from './chat';
-export * from './message';
-export * from './personalMessage';
+export * from './messages';
