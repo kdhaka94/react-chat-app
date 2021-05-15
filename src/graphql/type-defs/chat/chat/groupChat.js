@@ -64,7 +64,7 @@ export const GroupChat = gql`
 
   input GroupChatInput {
     participants: [ID!]!
-    admin: [ID]
+    image: File
     title: String
     privacy: String
     description: String
